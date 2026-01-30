@@ -12,6 +12,7 @@ public class UrlController {
     @PostMapping("/shortURL")
     public ResponseEntity<Void> shortURL(@RequestBody UrlDTO request){
 
+        return ResponseEntity.ok().build();
     }
 
 }
