@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class UrlController {
 
     @PostMapping("/shortURL")
-    public ResponseEntity<Void> shortURL(@RequestBody UrlDTO){
+    public ResponseEntity<Void> shortURL(@RequestBody UrlDTO request){
 
     }
 
