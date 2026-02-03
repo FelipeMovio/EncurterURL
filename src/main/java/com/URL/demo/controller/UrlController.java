@@ -21,6 +21,10 @@ public class UrlController {
     @PostMapping("/shortURL")
     public ResponseEntity<Void> shortURL(@RequestBody shortUrlDTORequet request){
 
+        // Gera um identificador aleatório alfanumérico (5 a 10 caracteres)
+        // e repete a geração enquanto o ID já existir no banco,
+        // garantindo que a URL curta seja única.
+
         String id;
         do {
             id = RandomStringUtils.randomAlphanumeric(5, 10);
