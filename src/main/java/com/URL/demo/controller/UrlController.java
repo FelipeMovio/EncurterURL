@@ -13,7 +13,7 @@ public class UrlController {
     @PostMapping("/shortURL")
     public ResponseEntity<Void> shortURL(@RequestBody shortUrlDTORequet request){
 
-        var id = RandomStringUtils.randomAlphanumeric(5, 10);
+        String id = RandomStringUtils.randomAlphanumeric(5, 10);
 
         return ResponseEntity.ok().build();
     }
