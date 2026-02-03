@@ -4,6 +4,7 @@ import com.URL.demo.DTOs.shortUrlDTORequet;
 import com.URL.demo.entities.Url;
 import com.URL.demo.repositoy.UrlRepository;
 import org.apache.commons.lang3.RandomStringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,6 +15,7 @@ import java.time.LocalDateTime;
 @RestController
 public class UrlController {
 
+    @Autowired
     private UrlRepository repository;
 
     @PostMapping("/shortURL")
