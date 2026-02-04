@@ -3,6 +3,7 @@ package com.URL.demo.controller;
 import com.URL.demo.DTOs.shortUrlDTORequet;
 import com.URL.demo.entities.Url;
 import com.URL.demo.repositoy.UrlRepository;
+import jakarta.servlet.http.HttpServletRequest;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +20,7 @@ public class UrlController {
     private UrlRepository repository;
 
     @PostMapping("/shortURL")
-    public ResponseEntity<Void> shortURL(@RequestBody shortUrlDTORequet request){
+    public ResponseEntity<Void> shortURL(@RequestBody shortUrlDTORequet request, HttpServletRequest servletRequest){
 
         // Gera um identificador aleatório alfanumérico (5 a 10 caracteres)
         // e repete a geração enquanto o ID já existir no banco,
