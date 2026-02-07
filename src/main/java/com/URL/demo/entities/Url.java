@@ -15,8 +15,9 @@ import lombok.Setter;
 public class Url {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(length = 10)
     private String id;
 
+    @Column(nullable = false)
     private String fullUrl;
 }
