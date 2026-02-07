@@ -1,7 +1,7 @@
 package com.URL.demo.controller;
 
 import com.URL.demo.DTOs.ShortUrlDTOResponse;
-import com.URL.demo.DTOs.shortUrlDTORequet;
+import com.URL.demo.DTOs.shortUrlDTORequest;
 import com.URL.demo.entities.Url;
 import com.URL.demo.repositoy.UrlRepository;
 import jakarta.servlet.http.HttpServletRequest;
@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.time.LocalDateTime;
-
 @RestController
 public class UrlController {
 
@@ -21,7 +19,7 @@ public class UrlController {
     private UrlRepository repository;
 
     @PostMapping("/shortURL")
-    public ResponseEntity<ShortUrlDTOResponse> shortURL(@RequestBody shortUrlDTORequet request, HttpServletRequest servletRequest){
+    public ResponseEntity<ShortUrlDTOResponse> shortURL(@RequestBody shortUrlDTORequest request, HttpServletRequest servletRequest){
 
         // Gera um identificador aleatório alfanumérico (5 a 10 caracteres)
         // e repete a geração enquanto o ID já existir no banco,
