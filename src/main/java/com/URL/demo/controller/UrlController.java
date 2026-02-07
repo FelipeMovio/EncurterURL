@@ -1,7 +1,7 @@
 package com.URL.demo.controller;
 
 import com.URL.demo.DTOs.ShortUrlDTOResponse;
-import com.URL.demo.DTOs.shortUrlDTORequest;
+import com.URL.demo.DTOs.ShortUrlDTORequest;
 import com.URL.demo.entities.Url;
 import com.URL.demo.repository.UrlRepository;
 import jakarta.servlet.http.HttpServletRequest;
@@ -19,7 +19,7 @@ public class UrlController {
     private UrlRepository repository;
 
     @PostMapping("/shortURL")
-    public ResponseEntity<ShortUrlDTOResponse> shortURL(@RequestBody shortUrlDTORequest request, HttpServletRequest servletRequest){
+    public ResponseEntity<ShortUrlDTOResponse> shortURL(@RequestBody ShortUrlDTORequest request, HttpServletRequest servletRequest){
 
         // Gera um identificador aleatório alfanumérico (5 a 10 caracteres)
         // e repete a geração enquanto o ID já existir no banco,
