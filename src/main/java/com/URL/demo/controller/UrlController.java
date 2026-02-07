@@ -15,8 +15,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class UrlController {
 
-    @Autowired
-    private UrlRepository repository;
+    private final UrlRepository repository;
+
+    public UrlController(UrlRepository repository) {
+        this.repository = repository;
+    }
 
     @PostMapping("/shortURL")
     public ResponseEntity<ShortUrlDTOResponse> shortURL(@RequestBody ShortUrlDTORequest request, HttpServletRequest servletRequest){
