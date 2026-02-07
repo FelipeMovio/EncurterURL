@@ -3,7 +3,7 @@ package com.URL.demo.controller;
 import com.URL.demo.DTOs.ShortUrlDTOResponse;
 import com.URL.demo.DTOs.shortUrlDTORequest;
 import com.URL.demo.entities.Url;
-import com.URL.demo.repositoy.UrlRepository;
+import com.URL.demo.repository.UrlRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;

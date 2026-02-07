@@ -1,4 +1,4 @@
-package com.URL.demo.repositoy;
+package com.URL.demo.repository;
 
 import com.URL.demo.entities.Url;
 import org.springframework.data.jpa.repository.JpaRepository;
