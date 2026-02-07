@@ -36,9 +36,14 @@ public class UrlController {
 
         repository.save(new Url(id,request.url()));
 
-        var reirectUrl = servletRequest.getRequestURL().toString().replace("/shortURL",id);
+        String baseUrl = servletRequest.getRequestURL()
+                .toString()
+                .replace(servletRequest.getRequestURI(), "");
 
-        return ResponseEntity.ok(new ShortUrlDTOResponse(reirectUrl));
+        String redirectUrl = baseUrl + "/" + id;
+
+
+        return ResponseEntity.ok(new ShortUrlDTOResponse(redirectUrl));
     }
 
 }
