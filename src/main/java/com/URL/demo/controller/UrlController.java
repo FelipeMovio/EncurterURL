@@ -10,6 +10,8 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.net.URI;
+
 @RestController  
 public class UrlController {
 
@@ -49,6 +51,7 @@ public class UrlController {
         var url = repository.findById(id);
 
         HttpHeaders headers = new HttpHeaders();
+        headers.setLocation(URI.create(url.get().getFullUrl()));
     }
 
 }
