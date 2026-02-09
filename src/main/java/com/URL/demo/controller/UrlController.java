@@ -50,8 +50,14 @@ public class UrlController {
     public ResponseEntity<Void> redirect(@PathVariable("id") String id){
         var url = repository.findById(id);
 
+        if (url.isEmpty()){
+            return ResponseEntity.notFound().build();
+        }
+
         HttpHeaders headers = new HttpHeaders();
         headers.setLocation(URI.create(url.get().getFullUrl()));
+
+
     }
 
 }
