@@ -6,10 +6,9 @@ import com.URL.demo.entities.Url;
 import com.URL.demo.repository.UrlRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import org.apache.commons.lang3.RandomStringUtils;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController  
 public class UrlController {
@@ -43,6 +42,13 @@ public class UrlController {
 
 
         return ResponseEntity.ok(new ShortUrlDTOResponse(redirectUrl));
+    }
+
+    @GetMapping("{id}")
+    public ResponseEntity<Void> redirect(@PathVariable("id") String id){
+        var url = repository.findById(id);
+
+        HttpHeaders headers = new HttpHeaders();
     }
 
 }
