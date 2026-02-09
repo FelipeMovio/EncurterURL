@@ -7,6 +7,7 @@ import com.URL.demo.repository.UrlRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -57,7 +58,7 @@ public class UrlController {
         HttpHeaders headers = new HttpHeaders();
         headers.setLocation(URI.create(url.get().getFullUrl()));
 
-
+        return ResponseEntity.status(HttpStatus.FOUND).headers(headers).build();
     }
 
 }
