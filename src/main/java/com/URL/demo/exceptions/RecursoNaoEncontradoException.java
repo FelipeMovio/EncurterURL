@@ -1,4 +1,4 @@
 package com.URL.demo.exceptions;
 
-public class RecursoNaoEncontradoException {
+public class RecursoNaoEncontradoException extends RuntimeException{
 }
