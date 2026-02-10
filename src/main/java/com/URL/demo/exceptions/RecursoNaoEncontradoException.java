@@ -1,4 +1,4 @@
-package com.URL.demo.execptions;
+package com.URL.demo.exceptions;
 
 public class RecursoNaoEncontradoException {
 }
