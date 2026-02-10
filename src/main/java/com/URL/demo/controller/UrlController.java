@@ -3,6 +3,7 @@ package com.URL.demo.controller;
 import com.URL.demo.DTOs.ShortUrlDTOResponse;
 import com.URL.demo.DTOs.ShortUrlDTORequest;
 import com.URL.demo.entities.Url;
+import com.URL.demo.exceptions.RecursoNaoEncontradoException;
 import com.URL.demo.repository.UrlRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import org.apache.commons.lang3.RandomStringUtils;
@@ -48,15 +49,15 @@ public class UrlController {
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<Void> redirect(@PathVariable("id") String id){
-        var url = repository.findById(id);
+    public ResponseEntity<Void> redirect(@PathVariable("id") String id) {
 
-        if (url.isEmpty()){
-            return ResponseEntity.notFound().build();
-        }
+        Url url = repository.findById(id)
+                .orElseThrow(() ->
+                        new RecursoNaoEncontradoException("URL não encontrada para o id: " + id)
+                );
 
         HttpHeaders headers = new HttpHeaders();
-        headers.setLocation(URI.create(url.get().getFullUrl()));
+        headers.setLocation(URI.create(url.getFullUrl()));
 
         return ResponseEntity.status(HttpStatus.FOUND).headers(headers).build();
     }
