@@ -21,4 +21,14 @@ public class GlobalExceptionHandler  {
         body.put("message", ex.getMessage());
         return new ResponseEntity<>(body,HttpStatus.NOT_FOUND);
     }
+
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<Object> HandleGenericException(Exception ex){
+        Map<String, Object> body = new LinkedHashMap<>();
+        body.put("timestamp", LocalDateTime.now());
+        body.put("status", HttpStatus.INTERNAL_SERVER_ERROR.value());
+        body.put("Error","Erro interno do servidor ");
+        body.put("message", ex.getMessage());
+        return new ResponseEntity<>(body,HttpStatus.INTERNAL_SERVER_ERROR);
+    }
 }
