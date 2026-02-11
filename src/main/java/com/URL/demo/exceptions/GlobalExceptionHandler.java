@@ -13,7 +13,7 @@ import java.util.Map;
 public class GlobalExceptionHandler  {
 
     @ExceptionHandler(RecursoNaoEncontradoException.class)
-    public ResponseEntity<?> HandleRecursoNaoEncontrado(RecursoNaoEncontradoException ex){
+    public ResponseEntity<Object> HandleRecursoNaoEncontrado(RecursoNaoEncontradoException ex){
         Map<String, Object> body = new LinkedHashMap<>();
         body.put("timestamp", LocalDateTime.now());
         body.put("status", HttpStatus.NOT_FOUND.value());
