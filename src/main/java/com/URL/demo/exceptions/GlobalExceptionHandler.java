@@ -19,6 +19,6 @@ public class GlobalExceptionHandler  {
         body.put("status", HttpStatus.NOT_FOUND.value());
         body.put("Error","Recurso nao encontrado ");
         body.put("message", ex.getMessage());
-
+        return new ResponseEntity<>(body,HttpStatus.NOT_FOUND);
     }
 }
